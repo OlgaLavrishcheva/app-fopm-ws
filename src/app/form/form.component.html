@@ -7,19 +7,27 @@
     <form>
       <div class="form-group">
         <label for="name">Имя: </label>
-        <input id="name" type="text" class="form-control" name="name" required
+        <input id="name" type="text" class="form-control" name="name" required #name="ngModel"
                [(ngModel)]="model.name">
+
+        <div class="alert alert-danger"
+             *ngIf="name.invalid && (name.dirty || name.touched)"
+        >Имя обязательно</div>
       </div>
 
       <div class="form-group">
         <label for="age">Возраст: </label>
-        <input id="age" type="number" class="form-control" name="age"
+        <input id="age" type="number" class="form-control" name="age" required #age="ngModel"
                [(ngModel)]="model.age">
+
+        <div class="alert alert-danger"
+             *ngIf="age.invalid && (age.dirty || age.touched)"
+        >Возраст обязателен</div>
       </div>
 
       <div class="form-group">
         <label for="role">Роль: </label>
-        <select name="role" id="role" class="form-control"
+        <select name="role" id="role" class="form-control" required
                 [(ngModel)]="model.role">
 
           <option *ngFor="let role of roles" [value]="role">{{role}}</option>

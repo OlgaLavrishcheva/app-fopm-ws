@@ -9,7 +9,7 @@ import {User} from '../user.class';
 export class FormComponent implements OnInit {
 
   roles: string[] = ['Гость', 'Модератор', 'Администратор'];
-  model: User = new User(0, '', '', 0);
+  model: User = new User(0, null, null, null);
 
   constructor() { }
 
