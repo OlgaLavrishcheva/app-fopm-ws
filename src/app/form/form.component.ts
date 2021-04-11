@@ -16,7 +16,7 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get diagnostic(): string {
-    return JSON.stringify(this.model);
-}
+  printErrors(d: any): void {
+    console.log(d);
+  }
 }
