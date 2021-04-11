@@ -4,12 +4,12 @@
   <div class="col-6">
 
     <h2>User registration</h2>
-    <form>
+
+    <form #userForm="ngForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="name">Имя: </label>
         <input id="name" type="text" class="form-control" name="name" #name="ngModel"
                required minlength="4" maxlength="10"
-               (input)="printErrors(name.errors)"
                [(ngModel)]="model.name">
 
         <div class="alert alert-danger"
@@ -40,7 +40,7 @@
       </div>
 
       <div class="form-group">
-        <button class="btn btn-info">Отправить</button>
+        <button class="btn btn-info" [disabled]="userForm.form.invalid">Отправить</button>
       </div>
 
     </form>
